@@ -19,6 +19,47 @@ our %SUFFIXES = (
     '.xz'  => {name=>'XZ'},
 );
 
+our %COMPRESSORS = (
+    NCompress => {
+        # all programs mentioned here must accept filename(s) as arguments.
+        # preferably CLI.
+        compressor_programs => [
+            {name => 'compress', opts => ''},
+        ],
+        decompressor_programs => [
+            {name => 'uncompress', opts => ''},
+        ],
+    },
+    Gzip => {
+        compressor_programs => [
+            {name => 'gzip', opts => ''},
+        ],
+        decompressor_programs => [
+            {name => 'gzip', opts => '-d'},
+            {name => 'gunzip', opts => ''},
+        ],
+    },
+    Bzip2 => {
+        compressor_programs => [
+            {name => 'bzip2', opts => ''},
+        ],
+        decompressor_programs => [
+            {name => 'bzip2', opts => '-d'},
+            {name => 'bunzip2', opts => ''},
+        ],
+    },
+    XZ => {
+        compressor_programs => [
+            {name => 'xz', opts => ''},
+        ],
+        decompressor_programs => [
+            {name => 'xz', opts => '-d'},
+            {name => 'unxz', opts => ''},
+        ],
+    },
+
+);
+
 our %SPEC;
 
 $SPEC{check_compressed_filename} = {
