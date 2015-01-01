@@ -1,5 +1,11 @@
 Revision history for Filename-Compressed
 
+0.03    2015-01-01 (PERLANCAR)
+
+	- Add option ci (and turn it on by default), this is to be useful
+	  in conjunction with Filename::Archive.
+
+
 0.02    2014-12-30 (PERLANCAR)
 
 	- Provide %COMPRESSORS containing information on each compressor.
