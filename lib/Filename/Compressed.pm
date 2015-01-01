@@ -76,7 +76,11 @@ _
             pos => 0,
         },
         # recurse?
-        # ci?
+        ci => {
+            summary => 'Whether to match case-insensitively',
+            schema  => 'bool',
+            default => 1,
+        },
     },
     result_naked => 1,
     result => {
@@ -95,8 +99,24 @@ sub check_compressed_filename {
 
     my $filename = $args{filename};
     $filename =~ /(\.\w+)\z/ or return 0;
+    my $ci = $args{ci} // 1;
+
     my $suffix = $1;
-    my $spec = $SUFFIXES{$1} or return 0;
+
+    my $spec;
+    if ($ci) {
+        my $suffix_lc = lc($suffix);
+        for (keys %SUFFIXES) {
+            if (lc($_) eq $suffix_lc) {
+                $spec = $SUFFIXES{$_};
+                last;
+            }
+        }
+    } else {
+        $spec = $SUFFIXES{$suffix};
+    }
+    return 0 unless $spec;
+
     (my $ufilename = $filename) =~ s/\.\w+\z//;
 
     return {

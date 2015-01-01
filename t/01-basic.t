@@ -26,12 +26,15 @@ is_deeply(check_compressed_filename(filename=>"foo.txt.2.bz2"),
               compressor_suffix=>'.bz2',
               uncompressed_filename=>'foo.txt.2',
           });
-is_deeply(check_compressed_filename(filename=>"foo.xz"),
+# ci
+is_deeply(check_compressed_filename(filename=>"foo.XZ"),
           {
               compressor_name=>'XZ',
-              compressor_suffix=>'.xz',
+              compressor_suffix=>'.XZ',
               uncompressed_filename=>'foo',
           });
+# ci=0
+is_deeply(check_compressed_filename(filename=>"foo.XZ", ci=>0), 0);
 
 DONE_TESTING:
 done_testing;
