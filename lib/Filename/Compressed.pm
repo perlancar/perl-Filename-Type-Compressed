@@ -17,6 +17,10 @@ our %SUFFIXES = (
     '.gz'  => {name=>'Gzip'},
     '.bz2' => {name=>'Bzip2'},
     '.xz'  => {name=>'XZ'},
+    '.lz'  => {name=>'LZ'},
+    '.lzma'=> {name=>'LZMA'},
+    '.zst' => {name=>'Zstandard'},
+    '.br'  => {name=>'Brotli'},
 );
 
 our %COMPRESSORS = (
@@ -57,7 +61,36 @@ our %COMPRESSORS = (
             {name => 'unxz', opts => ''},
         ],
     },
-
+    Zstandard => {
+        compressor_programs => [
+            {name => 'zstd', opts => ''},
+        ],
+        decompressor_programs => [
+            {name => 'zstd', opts => '-d'},
+            {name => 'unzstd', opts => ''},
+        ],
+    },
+    Brotli => {
+        compressor_programs => [
+        ],
+        decompressor_programs => [
+        ],
+    },
+    LZ => {
+        compressor_programs => [
+        ],
+        decompressor_programs => [
+        ],
+    },
+    LZMA => {
+        compressor_programs => [
+            {name => 'lzma', opts => ''},
+        ],
+        decompressor_programs => [
+            {name => 'lzma', opts => '-d'},
+            {name => 'unlzma', opts => ''},
+        ],
+    },
 );
 
 our %SPEC;
