@@ -1,4 +1,4 @@
-0.04    2015-09-03 (PERLANCAR)
+0.04    2015-09-03  Released-By: PERLANCAR
 
 	- No functional changes.
 
@@ -7,17 +7,17 @@
 	  requirement.
 
 
-0.03    2015-01-01 (PERLANCAR)
+0.03    2015-01-01  Released-By: PERLANCAR
 
 	- Add option ci (and turn it on by default), this is to be useful
 	  in conjunction with Filename::Archive.
 
 
-0.02    2014-12-30 (PERLANCAR)
+0.02    2014-12-30  Released-By: PERLANCAR
 
 	- Provide %COMPRESSORS containing information on each compressor.
 
 
-0.01    2014-12-30 (PERLANCAR)
+0.01    2014-12-30  Released-By: PERLANCAR
 
         - First release.
