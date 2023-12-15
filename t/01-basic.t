@@ -20,6 +20,12 @@ is_deeply(check_compressed_filename(filename=>"foo.Z"),
               compressor_suffix=>'.Z',
               uncompressed_filename=>'foo',
           });
+is_deeply(check_compressed_filename(filename=>"foo.z"),
+          {
+              compressor_name=>'NCompress',
+              compressor_suffix=>'.z',
+              uncompressed_filename=>'foo',
+          });
 is_deeply(check_compressed_filename(filename=>"foo.txt.2.bz2"),
           {
               compressor_name=>'Bzip2',
