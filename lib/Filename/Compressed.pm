@@ -1,14 +1,16 @@
 package Filename::Compressed;
 
-# DATE
-# VERSION
-
 use 5.010001;
 use strict;
 use warnings;
 
-require Exporter;
-our @ISA       = qw(Exporter);
+use Exporter qw(import);
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
+
 our @EXPORT_OK = qw(check_compressed_filename);
 #list_compressor_suffixes
 
@@ -109,7 +111,7 @@ _
             pos => 0,
         },
         # recurse?
-        ci => {
+        ignore_case => {
             summary => 'Whether to match case-insensitively',
             schema  => 'bool',
             default => 1,
@@ -126,13 +128,24 @@ information, which contains these keys: `compressor_name`, `compressor_suffix`,
 
 _
     },
+    examples => [
+        {
+            args => {filename=>'foo.bar'},
+        },
+        {
+            args => {filename=>'baz.xz'},
+        },
+        {
+            args => {filename=>'qux.Bz2'},
+        },
+    ],
 };
 sub check_compressed_filename {
     my %args = @_;
 
     my $filename = $args{filename};
     $filename =~ /(\.\w+)\z/ or return 0;
-    my $ci = $args{ci} // 1;
+    my $ci = $args{ignore_case} // 1;
 
     my $suffix = $1;
 
