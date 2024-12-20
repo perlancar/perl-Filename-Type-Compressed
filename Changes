@@ -1,3 +1,8 @@
+0.051   2024-12-20  Released-By: PERLANCAR; Urgency: medium
+
+        - Rename module/dist Filename-{,Type-}*.
+
+
 0.050   2023-12-15  Released-By: PERLANCAR; Urgency: medium; Backward-Incompatible: yes
 
         - [incompatible change] Rename 'ci' arg to 'ignore_case' to be
