@@ -4,7 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
-use Filename::Compressed qw(check_compressed_filename);
+use Filename::Type::Compressed qw(check_compressed_filename);
 use Test::More 0.98;
 
 is_deeply(check_compressed_filename(filename=>"foo.txt"), 0);

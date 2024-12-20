@@ -1,4 +1,4 @@
-package Filename::Compressed;
+package Filename::Type::Compressed;
 
 use 5.010001;
 use strict;
@@ -177,7 +177,7 @@ sub check_compressed_filename {
 
 =head1 SYNOPSIS
 
- use Filename::Compressed qw(check_compressed_filename);
+ use Filename::Type::Compressed qw(check_compressed_filename);
  my $res = check_compressed_filename(filename => "foo.txt.gz");
  if ($res) {
      printf "File is compressed with %s, uncompressed name: %s\n",
@@ -192,6 +192,6 @@ sub check_compressed_filename {
 
 =head1 SEE ALSO
 
-L<Filename::Archive>
+L<Filename::Type::Archive>
 
 =cut
