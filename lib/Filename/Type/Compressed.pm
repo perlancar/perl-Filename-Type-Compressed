@@ -100,10 +100,10 @@ our %SPEC;
 $SPEC{check_compressed_filename} = {
     v => 1.1,
     summary => 'Check whether filename indicates being compressed',
-    description => <<'_',
+    description => <<'MARKDOWN',
 
 
-_
+MARKDOWN
     args => {
         filename => {
             schema => 'str*',
@@ -120,13 +120,13 @@ _
     result_naked => 1,
     result => {
         schema => ['any*', of=>['bool*', 'hash*']],
-        description => <<'_',
+        description => <<'MARKDOWN',
 
 Return false if no compressor suffixes detected. Otherwise return a hash of
 information, which contains these keys: `compressor_name`, `compressor_suffix`,
 `uncompressed_filename`.
 
-_
+MARKDOWN
     },
     examples => [
         {
